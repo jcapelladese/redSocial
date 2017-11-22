@@ -54,19 +54,42 @@ public class Main {
 	    });
 	    
 	    // Cinquena aproximació
-	    
+	    System.out.println("Cinquena aproximació");
 	    System.out.println("Persons who are eligible for Selective Service" + "(llamada expression):");
 	    
 	    RosterTest.printPerson(
 	    		roster, 
-	    		(Person p) -> p.getGender() == Person.Sex.MALE
+	    		p -> p.getGender() == Person.Sex.MALE
 	    		&& p.getAge() >= 18 
 	    		&& p.getAge() <= 30
 	    );
 	    
 	    System.out.println();
+	    System.out.println("Sisena aproximació");
+	    // Sissena Aproximació
 	    
-		
+	    System.out.println("Persons who are eligible for Selective Service " + "(with Predicate parameter):");
+	    
+	    RosterTest.printPersonsWithPredicate(roster,
+	    		p -> p.getGender() == Person.Sex.MALE
+	    		&& p.getAge() >= 18
+	    		&& p .getAge() <= 30);
+	    
+	    System.out.println();
+	    System.out.println("Setena aproximació");
+	    System.out.println("Persons who are eligible for Selective Service " + "(with Predicate parameter and consumer parameters):");
+	    
+	    RosterTest.processPersons(roster, 
+	    	p -> p.getGender() == Person.Sex.MALE
+	    		&& p.getAge() >= 18
+	    		&& p .getAge() <= 30,
+	    	p -> p.printPerson()
+	    );
+	    System.out.println();
+	    
+	    
+	    
 	}
+	
 
 }

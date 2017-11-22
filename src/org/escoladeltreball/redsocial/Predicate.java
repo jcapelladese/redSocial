@@ -7,7 +7,7 @@ package org.escoladeltreball.redsocial;
  * @author iaw47941842
  *
  */
-public interface CheckPerson {
+public interface Predicate<T> {
 	
-	boolean test(Person p);	
+	boolean test(T t);
 }

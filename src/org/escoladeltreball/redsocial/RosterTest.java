@@ -4,6 +4,7 @@
 package org.escoladeltreball.redsocial;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import org.escoladeltreball.redsocial.Person.Sex;
 
@@ -41,6 +42,22 @@ public class RosterTest {
 			for (Person p : roster) {
 				if (tester.test(p)) {
 					p.printPerson();
+				}
+			}
+		}
+		
+		public static void printPersonsWithPredicate(List<Person> roster, Predicate<Person> tester) {
+			for (Person p : roster) {
+				if (tester.test(p)) {
+					p.printPerson();
+				}				
+			}
+		}
+		
+		public static void processPersons(List<Person> roster, Predicate<Person> tester,Consumer<Person> block) {
+			for (Person p : roster) {
+				if (tester.test(p)) {
+					block.accept(p);
 				}
 			}
 		}
