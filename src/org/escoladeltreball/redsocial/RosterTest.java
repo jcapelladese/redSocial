@@ -5,6 +5,7 @@ package org.escoladeltreball.redsocial;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import org.escoladeltreball.redsocial.Person.Sex;
 
@@ -60,6 +61,20 @@ public class RosterTest {
 					block.accept(p);
 				}
 			}
+		}
+		
+		public static <X, Y> void processElements(
+			Iterable<X> source,
+			Predicate<X> tester,
+			Function <X, Y> mapper,
+			Consumer<Y> block) {
+			
+			for (X p : source) {
+				if (tester.test(p)) {
+					Y data = mapper.apply(p);
+					block.accept(data);
+				}
+			}			
 		}
 
 }
